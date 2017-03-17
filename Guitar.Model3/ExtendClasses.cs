@@ -8,7 +8,12 @@ namespace Guitar.Model3
 {
     public partial class Author : IComparable<Author>
     {
-        public void Test()
+		public int CompareTo(Author other)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void Test()
         {
         }
     }
