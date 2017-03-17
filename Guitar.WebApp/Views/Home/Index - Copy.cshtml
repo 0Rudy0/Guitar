@@ -1,0 +1,149 @@
+﻿@{
+	Layout = null;
+	GuitarDatabaseEntities entities = new GuitarDatabaseEntities();
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Gitara</title>
+
+	@Styles.Render("~/Content/css")
+	@Scripts.Render("~/bundles/jquery")
+
+	<link type="text/css" rel="stylesheet" href="Content/materialize.min.css" media="screen,projection" />
+	@*<link rel="stylesheet" href="Content/jqwidgets/jqx.base.css" type="text/css" />
+		<link rel="stylesheet" href="Content/jqwidgets/jqx.darkblue.css" type="text/css" />
+		<script type="text/javascript" src="Scripts/jqwidgets/jqxcore.js"></script>
+		<script type="text/javascript" src="Scripts/jqwidgets/jqxbuttons.js"></script>
+		<script type="text/javascript" src="Scripts/jqwidgets/jqxscrollbar.js"></script>
+		<script type="text/javascript" src="Scripts/jqwidgets/jqxsplitter.js"></script>
+		<script type="text/javascript" src="Scripts/jqwidgets/jqxlistbox.js"></script>
+		<script type="text/javascript" src="Scripts/jqwidgets/jqxdata.js"></script>*@
+	@Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+	@*<div class="row">
+			<div class="col s12 m6">
+				<div class="card  grey lighten-4">
+					<div class="card-content">
+						<div id="autorsContent">
+							<div class="collection">
+								<a href="#!" class="collection-item">Alan<span class="badge">1</span></a>
+								<a href="#!" class="collection-item">Alan<span class="new badge">4</span></a>
+								<a href="#!" class="collection-item">Alan</a>
+								<a href="#!" class="collection-item">Alan<span class="badge">14</span></a>
+								<a href="#!" class="collection-item">Alan<span class="badge">1</span></a>
+								<a href="#!" class="collection-item">Alan<span class="new badge">4</span></a>
+								<a href="#!" class="collection-item">Alan</a>
+								<a href="#!" class="collection-item">Alan<span class="badge">14</span></a>
+								<a href="#!" class="collection-item">Alan<span class="badge">1</span></a>
+								<a href="#!" class="collection-item">Alan<span class="new badge">4</span></a>
+								<a href="#!" class="collection-item">Alan</a>
+								<a href="#!" class="collection-item">Alan<span class="badge">14</span></a>
+							</div>
+						</div>
+					</div>
+					<div class="card-action grey lighten-5">
+						<a href="#">Dodaj novog autora</a>
+					</div>
+				</div>
+			</div>
+		</div>*@
+
+	<div class="row">
+
+		<div id="topContent">
+			<div class="col s12 m6 l5">
+				<div class="card teal lighten-4">
+					<div class="card-content">
+						<span class="card-title">Autori</span>
+						<div id="autorsContent">
+							<div class="collection">
+								@foreach (Author a in entities.Authors.OrderBy(x => x.authorName))
+								{
+									<a href="#!" id="author_@a.authorID" class="collection-item" onclick="authorClick(@a.authorID)">@a.authorName<span class="badge">@entities.Songs.Where(x => x.authorID.Equals(a.authorID)).Count()</span></a>
+								}								
+							</div>
+						</div>
+					</div>
+					<div class="card-action grey lighten-5">
+						<a href="#">Dodaj novog autora</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="col s12 m6 l5">
+				<div class="card  grey lighten-4">
+					<div class="card-content">
+						<span class="card-title">Pjesme</span>
+						<div id="autorsContent">
+							<div class="collection" id="songsHolder">
+							</div>
+						</div>
+					</div>
+					<div class="card-action grey lighten-5">
+						<a href="#">Dodaj novu pjesmu</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="bottomContent">
+			<div class="col s12 m4 l4">
+				<div class="card  grey lighten-4">
+					<div class="card-content">
+						<span class="card-title">Tabs</span>
+						<div id="autorsContent">
+							<div class="collection" id="tabsHolder">
+							</div>
+						</div>
+					</div>
+					<div class="card-action grey lighten-5">
+						<a href="#">Dodaj novi tab</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="col s12 m4 l4">
+				<div class="card  grey lighten-4">
+					<div class="card-content">
+						<span class="card-title">Tutorials</span>
+						<div id="autorsContent">
+							<div class="collection" id="tutorialsHolder">
+							</div>
+						</div>
+					</div>
+					<div class="card-action grey lighten-5">
+						<a href="#">Dodaj novi tutorial</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="col s12 m4 l4">
+				<div class="card  grey lighten-4">
+					<div class="card-content">
+						<span class="card-title">Covers</span>
+						<div id="autorsContent">
+							<div class="collection" id="">
+							</div>
+						</div>
+					</div>
+					<div class="card-action grey lighten-5">
+						<a href="#">Dodaj novi cover</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+
+	@Scripts.Render("~/bundles/bootstrap")
+	<script type="text/javascript" src="Scripts/materialize.min.js"></script>
+	<script type="text/javascript" src="Scripts/index.js"></script>
+</body>
+</html>

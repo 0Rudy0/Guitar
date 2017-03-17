@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="GuitarDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Author">
+          <Key>
+            <PropertyRef Name="authorID" />
+          </Key>
+          <Property Name="authorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="authorName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="isDomestic" Type="bit" Nullable="false" />
+          <Property Name="isForeign" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InternetLink">
+          <Key>
+            <PropertyRef Name="linkID" />
+          </Key>
+          <Property Name="linkID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="linkName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="songID" Type="int" Nullable="false" />
+          <Property Name="isTab" Type="bit" Nullable="false" />
+          <Property Name="isTutorial" Type="bit" Nullable="false" />
+          <Property Name="isCover" Type="bit" Nullable="false" />
+          <Property Name="linkAdress" Type="nvarchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Song">
+          <Key>
+            <PropertyRef Name="songID" />
+          </Key>
+          <Property Name="songID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="songName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="authorID" Type="int" Nullable="false" />
+          <Property Name="isPartialyLearned" Type="bit" Nullable="false" />
+          <Property Name="isFullLearned" Type="bit" Nullable="false" />
+          <Property Name="youtubeLink" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="groovesharkLink" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <Association Name="song_author">
+          <End Role="Author" Type="Self.Author" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Song" Type="Self.Song" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="authorID" />
+            </Principal>
+            <Dependent Role="Song">
+              <PropertyRef Name="authorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="song_link">
+          <End Role="Song" Type="Self.Song" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="InternetLink" Type="Self.InternetLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Song">
+              <PropertyRef Name="songID" />
+            </Principal>
+            <Dependent Role="InternetLink">
+              <PropertyRef Name="songID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GuitarDatabaseModelStoreContainer">
+          <EntitySet Name="Author" EntityType="Self.Author" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InternetLink" EntityType="Self.InternetLink" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Song" EntityType="Self.Song" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="song_author" Association="Self.song_author">
+            <End Role="Author" EntitySet="Author" />
+            <End Role="Song" EntitySet="Song" />
+          </AssociationSet>
+          <AssociationSet Name="song_link" Association="Self.song_link">
+            <End Role="Song" EntitySet="Song" />
+            <End Role="InternetLink" EntitySet="InternetLink" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GuitarDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Author">
+          <Key>
+            <PropertyRef Name="authorID" />
+          </Key>
+          <Property Name="authorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="authorName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="isDomestic" Type="Boolean" Nullable="false" />
+          <Property Name="isForeign" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Songs" Relationship="Self.song_author" FromRole="Author" ToRole="Song" />
+        </EntityType>
+        <EntityType Name="InternetLink">
+          <Key>
+            <PropertyRef Name="linkID" />
+          </Key>
+          <Property Name="linkID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="linkName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="songID" Type="Int32" Nullable="false" />
+          <Property Name="isTab" Type="Boolean" Nullable="false" />
+          <Property Name="isTutorial" Type="Boolean" Nullable="false" />
+          <Property Name="isCover" Type="Boolean" Nullable="false" />
+          <Property Name="linkAdress" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Song" Relationship="Self.song_link" FromRole="InternetLink" ToRole="Song" />
+        </EntityType>
+        <EntityType Name="Song">
+          <Key>
+            <PropertyRef Name="songID" />
+          </Key>
+          <Property Name="songID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="songName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="authorID" Type="Int32" Nullable="false" />
+          <Property Name="isPartialyLearned" Type="Boolean" Nullable="false" />
+          <Property Name="isFullLearned" Type="Boolean" Nullable="false" />
+          <Property Name="youtubeLink" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="groovesharkLink" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Author" Relationship="Self.song_author" FromRole="Song" ToRole="Author" />
+          <NavigationProperty Name="InternetLinks" Relationship="Self.song_link" FromRole="Song" ToRole="InternetLink" />
+        </EntityType>
+        <Association Name="song_author">
+          <End Role="Author" Type="Self.Author" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Song" Type="Self.Song" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="authorID" />
+            </Principal>
+            <Dependent Role="Song">
+              <PropertyRef Name="authorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="song_link">
+          <End Role="Song" Type="Self.Song" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="InternetLink" Type="Self.InternetLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Song">
+              <PropertyRef Name="songID" />
+            </Principal>
+            <Dependent Role="InternetLink">
+              <PropertyRef Name="songID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GuitarDatabaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Authors" EntityType="Self.Author" />
+          <EntitySet Name="InternetLinks" EntityType="Self.InternetLink" />
+          <EntitySet Name="Songs" EntityType="Self.Song" />
+          <AssociationSet Name="song_author" Association="Self.song_author">
+            <End Role="Author" EntitySet="Authors" />
+            <End Role="Song" EntitySet="Songs" />
+          </AssociationSet>
+          <AssociationSet Name="song_link" Association="Self.song_link">
+            <End Role="Song" EntitySet="Songs" />
+            <End Role="InternetLink" EntitySet="InternetLinks" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GuitarDatabaseModelStoreContainer" CdmEntityContainer="GuitarDatabaseEntities">
+          <EntitySetMapping Name="Authors">
+            <EntityTypeMapping TypeName="GuitarDatabaseModel.Author">
+              <MappingFragment StoreEntitySet="Author">
+                <ScalarProperty Name="authorID" ColumnName="authorID" />
+                <ScalarProperty Name="authorName" ColumnName="authorName" />
+                <ScalarProperty Name="isDomestic" ColumnName="isDomestic" />
+                <ScalarProperty Name="isForeign" ColumnName="isForeign" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InternetLinks">
+            <EntityTypeMapping TypeName="GuitarDatabaseModel.InternetLink">
+              <MappingFragment StoreEntitySet="InternetLink">
+                <ScalarProperty Name="linkID" ColumnName="linkID" />
+                <ScalarProperty Name="linkName" ColumnName="linkName" />
+                <ScalarProperty Name="songID" ColumnName="songID" />
+                <ScalarProperty Name="isTab" ColumnName="isTab" />
+                <ScalarProperty Name="isTutorial" ColumnName="isTutorial" />
+                <ScalarProperty Name="isCover" ColumnName="isCover" />
+                <ScalarProperty Name="linkAdress" ColumnName="linkAdress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Songs">
+            <EntityTypeMapping TypeName="GuitarDatabaseModel.Song">
+              <MappingFragment StoreEntitySet="Song">
+                <ScalarProperty Name="songID" ColumnName="songID" />
+                <ScalarProperty Name="songName" ColumnName="songName" />
+                <ScalarProperty Name="authorID" ColumnName="authorID" />
+                <ScalarProperty Name="isPartialyLearned" ColumnName="isPartialyLearned" />
+                <ScalarProperty Name="isFullLearned" ColumnName="isFullLearned" />
+                <ScalarProperty Name="youtubeLink" ColumnName="youtubeLink" />
+                <ScalarProperty Name="groovesharkLink" ColumnName="groovesharkLink" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

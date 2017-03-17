@@ -1,0 +1,39 @@
+﻿<Window x:Class="Guitar.View3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Gitara" Height="570" Width="832" Loaded="Window_Loaded_1" Topmost="True" WindowStartupLocation="CenterScreen" >
+    <Grid>
+        <TabControl Margin="8">
+            <TabItem Header="Tabovi">
+                <Grid Background="#FFE5E5E5">
+                    <ListBox HorizontalAlignment="Left" Margin="8,27.959,0,8" Width="245" Grid.Row="1" Name="authorsList" SelectionChanged="authorsList_SelectionChanged" ItemsSource="{Binding}" />
+                    <ListBox Margin="317,27.959,97,0" Height="193.114" VerticalAlignment="Top" Grid.Row="1" Name="songsList" SelectionChanged="songsList_SelectionChanged" ItemsSource="{Binding Mode=OneWay}" />
+                    <ListBox Margin="317,0,390,8" Height="136" VerticalAlignment="Bottom" Grid.Row="1" Name="tabsList" ItemsSource="{Binding Mode=OneWay}" />
+                    <TextBlock HorizontalAlignment="Left" Margin="8,2.677,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Row="1" FontSize="16" FontWeight="Bold"><Run Language="hr-hr" Text="AUTORI"/></TextBlock>
+                    <CheckBox Content="Strano" HorizontalAlignment="Left" Margin="126.753,7.999,0,0" VerticalAlignment="Top" Grid.Row="1" Name="foreignCheck" IsChecked="True" Checked="foreignCheck_Checked" Unchecked="foreignCheck_Unchecked" />
+                    <CheckBox Content="Domaće" HorizontalAlignment="Left" Margin="192.293,7.998,0,0" VerticalAlignment="Top" Grid.Row="1" Name="domesticCheck" IsChecked="True" Checked="domesticCheck_Checked" Unchecked="domesticCheck_Unchecked" />
+                    <TextBlock Margin="317,2.676,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Row="1" FontSize="16" FontWeight="Bold" HorizontalAlignment="Left"><Run Language="hr-hr" Text="PJESME"/></TextBlock>
+                    <Button Content="Youtube" HorizontalAlignment="Right" Margin="0,1.995,97,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Name="openYoutube" Click="openYoutube_Click" />
+                    <Button Content="+" HorizontalAlignment="Left" Margin="257,27.958,0,0" Grid.Row="1" VerticalAlignment="Top" Width="27" Name="addAuthor" Click="addAuthor_Click" />
+                    <Button Content="-" HorizontalAlignment="Left" Margin="257,53.917,0,0" Grid.Row="1" VerticalAlignment="Top" Width="27" Name="removeAuthor" Click="removeAuthor_Click" />
+                    <Button Content="+" HorizontalAlignment="Right" Margin="0,27.957,66,0" Grid.Row="1" VerticalAlignment="Top" Width="27" Name="addSong" Click="addSong_Click" />
+                    <Button Content="-" HorizontalAlignment="Right" Margin="0,53.916,66,0" Grid.Row="1" VerticalAlignment="Top" Width="27" Name="removeSong" Click="removeSong_Click" />
+                    <TextBlock Margin="317,0,0,148" TextWrapping="Wrap" VerticalAlignment="Bottom" Grid.Row="1" FontSize="16" FontWeight="Bold" HorizontalAlignment="Left"><Run Language="hr-hr" Text="Tabovi"/></TextBlock>
+                    <ListBox Margin="0,0,243,8" Height="136" VerticalAlignment="Bottom" Grid.Row="1" HorizontalAlignment="Right" Width="83" Name="tutorialsList" ItemsSource="{Binding Mode=OneWay}"/>
+                    <TextBlock Margin="0,0,262.323,148" TextWrapping="Wrap" VerticalAlignment="Bottom" Grid.Row="1" FontSize="16" FontWeight="Bold" HorizontalAlignment="Right"><Run Language="hr-hr" Text="Tutoriali"/></TextBlock>
+                    <ListBox Margin="0,0,86.33,8" Height="136" VerticalAlignment="Bottom" Grid.Row="1" HorizontalAlignment="Right" Width="83" Name="coversList" ItemsSource="{Binding Mode=OneWay}" />
+                    <TextBlock Margin="0,0,121.323,148" TextWrapping="Wrap" VerticalAlignment="Bottom" Grid.Row="1" FontSize="16" FontWeight="Bold" HorizontalAlignment="Right"><Run Language="hr-hr" Text="Coveri"/></TextBlock>
+                    <Button Content="edit" HorizontalAlignment="Right" Margin="0,90.913,66,0" Grid.Row="1" VerticalAlignment="Top" Width="27" Name="editSong" />
+                    <Button Content="+" HorizontalAlignment="Right" Margin="0,0,359,120.959" Grid.Row="1" VerticalAlignment="Bottom" Width="27" Name="addTab" Click="addTab_Click" />
+                    <Button Content="-" HorizontalAlignment="Right" Margin="0,0,359,95" Grid.Row="1" VerticalAlignment="Bottom" Width="27" Name="removeTab" Click="removeTab_Click" />
+                    <Button Content="+" HorizontalAlignment="Right" Margin="0,0,212,120.959" Grid.Row="1" VerticalAlignment="Bottom" Width="27" Name="addTutorial" Click="addTutorial_Click" />
+                    <Button Content="-" HorizontalAlignment="Right" Margin="0,0,212,95" Grid.Row="1" VerticalAlignment="Bottom" Width="27" Name="removeTutorial" Click="removeTutorial_Click" />
+                    <Button Content="+" HorizontalAlignment="Right" Margin="0,0,55.33,120.959" Grid.Row="1" VerticalAlignment="Bottom" Width="27" Name="addCover" Click="addCover_Click" />
+                    <Button Content="-" HorizontalAlignment="Right" Margin="0,0,55.33,95" Grid.Row="1" VerticalAlignment="Bottom" Width="27" Name="removeCover" Click="removeCover_Click" />
+
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>

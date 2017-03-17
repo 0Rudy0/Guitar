@@ -1,0 +1,73 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Guitar.Model3", "Guitar.Model3\Guitar.Model3.csproj", "{0059B83A-2E6D-4BE5-8400-134EF4461E7F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Guitar.View3", "Guitar.View3\Guitar.View3.csproj", "{51F3457A-103C-4119-8E4D-4898599BBEBA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Guitar.WebApp", "Guitar.WebApp\Guitar.WebApp.csproj", "{352C8B8F-AE16-4DA6-847E-D8F7BEBAC794}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0059B83A-2E6D-4BE5-8400-134EF4461E7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0059B83A-2E6D-4BE5-8400-134EF4461E7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0059B83A-2E6D-4BE5-8400-134EF4461E7F}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{0059B83A-2E6D-4BE5-8400-134EF4461E7F}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{0059B83A-2E6D-4BE5-8400-134EF4461E7F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0059B83A-2E6D-4BE5-8400-134EF4461E7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0059B83A-2E6D-4BE5-8400-134EF4461E7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0059B83A-2E6D-4BE5-8400-134EF4461E7F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{0059B83A-2E6D-4BE5-8400-134EF4461E7F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{0059B83A-2E6D-4BE5-8400-134EF4461E7F}.Release|x86.ActiveCfg = Release|Any CPU
+		{51F3457A-103C-4119-8E4D-4898599BBEBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51F3457A-103C-4119-8E4D-4898599BBEBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51F3457A-103C-4119-8E4D-4898599BBEBA}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{51F3457A-103C-4119-8E4D-4898599BBEBA}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{51F3457A-103C-4119-8E4D-4898599BBEBA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{51F3457A-103C-4119-8E4D-4898599BBEBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51F3457A-103C-4119-8E4D-4898599BBEBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51F3457A-103C-4119-8E4D-4898599BBEBA}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{51F3457A-103C-4119-8E4D-4898599BBEBA}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{51F3457A-103C-4119-8E4D-4898599BBEBA}.Release|x86.ActiveCfg = Release|Any CPU
+		{352C8B8F-AE16-4DA6-847E-D8F7BEBAC794}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{352C8B8F-AE16-4DA6-847E-D8F7BEBAC794}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{352C8B8F-AE16-4DA6-847E-D8F7BEBAC794}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{352C8B8F-AE16-4DA6-847E-D8F7BEBAC794}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{352C8B8F-AE16-4DA6-847E-D8F7BEBAC794}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{352C8B8F-AE16-4DA6-847E-D8F7BEBAC794}.Debug|x86.Build.0 = Debug|Any CPU
+		{352C8B8F-AE16-4DA6-847E-D8F7BEBAC794}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{352C8B8F-AE16-4DA6-847E-D8F7BEBAC794}.Release|Any CPU.Build.0 = Release|Any CPU
+		{352C8B8F-AE16-4DA6-847E-D8F7BEBAC794}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{352C8B8F-AE16-4DA6-847E-D8F7BEBAC794}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{352C8B8F-AE16-4DA6-847E-D8F7BEBAC794}.Release|x86.ActiveCfg = Release|Any CPU
+		{352C8B8F-AE16-4DA6-847E-D8F7BEBAC794}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://rudy.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Guitar.Model3\\Guitar.Model3.csproj
+		SccProjectName1 = Guitar.Model3
+		SccLocalPath1 = Guitar.Model3
+		SccProjectUniqueName2 = Guitar.View3\\Guitar.View3.csproj
+		SccProjectName2 = Guitar.View3
+		SccLocalPath2 = Guitar.View3
+		SccProjectUniqueName3 = Guitar.WebApp\\Guitar.WebApp.csproj
+		SccProjectName3 = Guitar.WebApp
+		SccLocalPath3 = Guitar.WebApp
+	EndGlobalSection
+EndGlobal

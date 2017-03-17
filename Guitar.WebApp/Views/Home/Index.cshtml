@@ -1,0 +1,118 @@
+﻿@{
+	Layout = null;
+	GuitarDatabaseEntities entities = new GuitarDatabaseEntities();
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=0.9">
+	<link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+	<title>Gitara</title>
+
+	@Styles.Render("~/Content/Index")
+	@Scripts.Render("~/bundles/jquery")
+
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<body class="deep-purple darken-4">
+	<div class="row">
+		<div class="col s12 m6 l4 auth">
+			<div class="card indigo  auth">
+				<div class="card-content">
+					<div id="autorsContent">
+						<div class="collection">
+							@foreach (Author a in entities.Authors.OrderBy(x => x.authorName))
+							{
+								if (a.Songs.Count() > 1)
+								{
+									<a href="#!" id="author_@a.authorID" class="collection-item brown-text" onclick="authorClick(@a.authorID)">@a.authorName<span class="badge">@a.Songs.Count()</span></a>
+								}
+								else
+								{
+									<a href="#!" id="author_@a.authorID" class="collection-item brown-text" onclick="authorClick(@a.authorID)">@a.authorName</a>
+								}
+
+							}
+						</div>
+					</div>
+				</div>
+				<div class="card-action brown lighten-5">
+					<a href="#" class="black-text" >Dodaj novog autora</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="col s12 m6 l4 songs">
+			<div class="card indigo lighten-2 songs">
+				<div class="card-content">
+					<a class="waves-effect red darken-1 waves-light btn btn-youtube">YOUTUBE</a>
+					<span class="card-title">Pjesme</span>
+					<div id="songsContent">
+						<div class="collection" id="songsHolder">
+						</div>
+					</div>
+				</div>
+				<div class="card-action brown lighten-5">
+					<a href="#" class="black-text">Dodaj novu pjesmu</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="col s12 m6 l4 chords">
+			<div class="card indigo lighten-4 chords">
+				<div class="card-content">
+					<span class="card-title">Tabs</span>
+					<div id="tabsContent">
+						<div class="collection" id="tabsHolder">
+						</div>
+					</div>
+				</div>
+				<div class="card-action brown lighten-5">
+					<a href="#" class="black-text">Dodaj novi tab</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="col s12 m6 l4 tutorials">
+			<div class="card indigo lighten-4 tutorials">
+				<div class="card-content">
+					<span class="card-title">Tutorials</span>
+					<div id="tutorialsContent">
+						<div class="collection" id="tutorialsHolder">
+						</div>
+					</div>
+				</div>
+				<div class="card-action brown lighten-5">
+					<a href="#" class="black-text">Dodaj novi tutorial</a>
+				</div>
+			</div>
+		</div>		
+
+		<div class="col s12 m6 l4 covers">
+			<div class="card indigo lighten-4 covers">
+				<div class="card-content">
+					<span class="card-title">Covers</span>
+					<div id="coversContent">
+						<div class="collection" id="coversHolder">
+						</div>
+					</div>
+				</div>
+				<div class="card-action brown lighten-5">
+					<a href="#" class="black-text">Dodaj novi cover</a>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	@Scripts.Render("~/bundles/Index")
+	@Scripts.Render("~/bundles/modernizr")
+
+	<script type="text/javascript">
+		var appName = '@System.Configuration.ConfigurationManager.AppSettings["appName"]';
+	</script>
+</body>
+</html>

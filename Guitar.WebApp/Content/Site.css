@@ -1,0 +1,203 @@
+﻿body {
+	/*padding-top: 20px;*/
+	/*padding-bottom: 20px;*/
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+	white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+	max-width: 280px;
+}
+
+#autorsContent {
+	height: 400px;
+	overflow-y: auto;
+}
+
+
+td, th {
+	padding: 0 !important;
+}
+
+a, a:hover, a::after, a::before, a:active, a:current {
+	text-decoration: none;
+}
+
+.btn-youtube {
+	position: absolute !important;
+	right: 20px;
+	top: 20px;
+}
+
+div.collection {
+	margin: 0 !important;
+}
+
+.badge {
+	background-color: transparent !important;
+}
+
+span.badge {
+	font-size: 8pt !important;
+}
+
+@media screen and (max-width: 600px) {
+	
+
+	.card-content {
+		padding: 5px !important;
+	}
+
+	.card-title {
+		line-height: 30px !important;
+		font-size: 13pt !important;
+	}
+
+	.card-action {
+		display: none !important;
+	}
+
+	.btn-youtube {
+		display: none;
+	}
+
+	.collection-item {
+		padding: 10px 20px !important;
+	}
+}
+
+
+@media screen and (min-width: 601px) and (max-width: 991px) {
+	#autorsContent {
+		height: 331px;
+		overflow-y: auto;
+	}
+
+	#songsContent {
+		height: 120px;
+		overflow-y: auto;
+	}
+
+	#tabsContent {
+		height: 120px;
+		overflow-y: auto;
+	}
+
+	#tutorialsContent {
+		height: 200px;
+		overflow-y: auto;
+	}
+
+	#coversContent {
+		height: 200px;
+		overflow-y: auto;
+	}
+
+	.card-content {
+		padding: 5px !important;
+	}
+
+	.card-title {
+		line-height: 30px !important;
+		font-size: 13pt !important;
+	}
+
+	.card-action {
+		display: none !important;
+	}
+
+	.btn-youtube {
+		display: none;
+	}
+
+	.collection-item {
+		padding: 5px 20px !important;
+	}
+}
+
+
+@media screen and (min-width: 992px) {
+	#topContent {
+		padding-left: calc(9% + 45px);
+	}
+
+	body {
+		overflow: auto;
+
+	}
+
+	#autorsContent {
+		height: 100%;
+		overflow-y: auto;
+	}
+
+	#songsContent {
+		height: 100%;
+		overflow-y: auto;
+	}
+
+	#tabsContent {
+		height: 100%;
+		overflow-y: auto;
+	}
+
+	#tutorialsContent {
+		height: 100%;
+		overflow-y: auto;
+	}
+
+	#coversContent {
+		height: 100%;
+		overflow-y: auto;
+	}
+
+	.row {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		min-height: 500px;
+	}
+
+	.col.auth {
+		height: 100%;
+	}
+
+	.col.songs, 
+	.col.chords, 
+	.col.covers, 
+	.col.tutorials {
+		height: 50%;
+	}
+
+	.card.auth, 
+	.card.songs, 
+	.card.chords, 
+	.card.covers, 
+	.card.tutorials {
+		height: calc(100% - 20px) !important;
+	}
+
+	.card.auth .card-content, 
+	.card.songs .card-content, 
+	.card.chords .card-content,
+	.card.covers .card-content,
+	.card.tutorials .card-content {
+		height: calc(100% - 60px) !important;
+	}
+
+
+}
